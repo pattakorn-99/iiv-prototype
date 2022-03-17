@@ -1,0 +1,17 @@
+<div class="card">
+  <div *ngFor="let stage of stages">
+    <span class="status-row">
+      <div class="status-icon">
+        <img src="assets/Success%20Small.png" alt="success">
+      </div>
+      <div>
+        <div>
+          {{ stage.name }}
+        </div>
+        <div style="color: red">
+          {{ stage.timestamp || '-' }}
+        </div>
+      </div>
+    </span>
+  </div>
+</div>

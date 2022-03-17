@@ -1,0 +1,15 @@
+
+<div class="content" role="main">
+  <!--  <ul>-->
+  <span *ngFor="let data of imageData">
+      <app-car-img-upload-card
+        [imgId]="data.id"
+        [textTitle]="data.text"
+        [thumbnail]="data.image"
+      ></app-car-img-upload-card>
+    </span>
+  <!--  </ul>-->
+</div>
+<footer>
+  <button class="submit-btn" (click)="submit()">บันทึกข้อมูลรถ</button>
+</footer>

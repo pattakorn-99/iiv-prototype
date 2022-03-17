@@ -1,0 +1,25 @@
+<div *ngIf="!selectedImage; then uploading;else uploaded"></div>
+<ng-template #uploading>
+  <div class="card" (click)="file.click()">
+    <span class="content">
+      <div>
+        {{textTitle}}
+      </div>
+      <div>
+        <img alt="front" src="{{thumbnail}}">
+      </div>
+      <div>
+        <img alt="front" src="../../../assets/Camera.png">
+      </div>
+    </span>
+    <input type="file" accept="image/*" #file style="display: none" (change)="uploadImage(file)">
+  </div>
+</ng-template>
+<ng-template #uploaded>
+  <div class="card-uploaded">
+    <img class="cancel-button" src="../../../assets/Cancel.png" alt="Cancel upload" (click)="removeImage()" >
+    <span>
+      <img class="image-container" [src]="selectedImage" alt="{{textTitle}}">
+    </span>
+  </div>
+</ng-template>
