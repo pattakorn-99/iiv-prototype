@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-upload',
@@ -18,13 +18,21 @@ export class UploadComponent implements OnInit {
     { id: 8, text: 'ด้านหลังซ้าย (45 ํ)', image: 'assets/car-outline/Car%20Back%20Left.png' },
     { id: 9, text: 'ด้านหลังขวา (45 ํ)', image: 'assets/car-outline/Car%20Back%20Right.png' },
   ]
+  showDialog: boolean = false
+  @ViewChild('submitDialogTemp', { static: true }) dialog!: ElementRef
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   submit(): void {
-    console.log('hello')
+    this.showDialog = true
+    console.log('show')
+  }
+  close(): void {
+    this.showDialog = false
+    console.log('close')
   }
 
 }

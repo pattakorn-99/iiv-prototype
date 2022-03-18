@@ -1,16 +1,56 @@
-.card{
-  margin-top: 18px;
-  border-radius: 8px;
-  background: white;
-  padding: 28px;
+@media only screen and (max-width: 768px) {
+  .card{
+    margin-top: 18px;
+    border-radius: 8px;
+    background: white;
+    padding: 28px;
+    width: 344px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .card{
+    margin-top: 18px;
+    border-radius: 8px;
+    background: white;
+    padding: 28px;
+    width: 600px;
+  }
 }
 
 .status-row {
   display: flex;
   flex-direction: row;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  .status-icon {
+  .status-icon-container {
+    min-width: 40px;
     margin-right: 20px;
+    .status-icon{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .vertical-line-dotted{
+        border-left: 1px dashed #B2BFD1;;
+        height: 42px
+      }
+      .vertical-line{
+        border-left: 1px solid #B2BFD1;;
+        height: 42px
+      }
+    }
   }
+}
+//.btn{
+//  color: white;
+//  background: #2A4C79;
+//  border-radius: 8px;
+//  text-align: center;
+//  padding: 12px;
+//  cursor: pointer;
+//  margin: 15px auto;
+//  &:hover{
+//    background: red;
+//  }
+//}
+
+.upload-margin{
+    margin: 15px auto;
 }

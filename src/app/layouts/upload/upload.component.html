@@ -1,15 +1,53 @@
+<div class="container">
+    <div style="display: flex;flex-direction: column">
+        <div class="content" role="main">
+          <!--  <ul>-->
+          <span *ngFor="let data of imageData">
+              <app-car-img-upload-card
+                [imgId]="data.id"
+                [textTitle]="data.text"
+                [thumbnail]="data.image"
+              ></app-car-img-upload-card>
+            </span>
+          <!--  </ul>-->
+        </div>
+        <footer>
+          <button
+              class="btn-primary"
+              style="width: 100%"
+              (click)="submit()"
+          >
+              บันทึกข้อมูลรถ
+          </button>
+        </footer>
+    </div>
+    <div *ngIf="showDialog" id="submitDialog" #submitDialogTemp class="dialog">
+        <img src="assets/Success%20Lage.png" alt="success" class="image">
+        <div class="header">
+            อัปโหลดรูปสำเร็จ
+        </div>
+        <div class="body">
+            <p style="text-align: center">
+                ขณะนี้ รูปภาพอยู่ในขั้นตอนของการตรวจสอบ<br>
+                จากทางระบบ โดยคุณสามารถดูสถานะ<br>
+                การดำเนินการได้จาก Link<br>
+                ที่ส่งให้ผ่านข้อความในอีเมล หรือ SMS
+            </p>
+        </div>
+        <div class="actions">
+            <button
+                    class="btn-primary"
+                    style="width: 100%;"
+                    (click)="close()"
+            >
+                ตกลง
+            </button>
+        </div>
+    </div>
+    <div
+        id="backdrop"
+        *ngIf="showDialog"
+        class="overlay"
+    ></div>
 
-<div class="content" role="main">
-  <!--  <ul>-->
-  <span *ngFor="let data of imageData">
-      <app-car-img-upload-card
-        [imgId]="data.id"
-        [textTitle]="data.text"
-        [thumbnail]="data.image"
-      ></app-car-img-upload-card>
-    </span>
-  <!--  </ul>-->
 </div>
-<footer>
-  <button class="submit-btn" (click)="submit()">บันทึกข้อมูลรถ</button>
-</footer>

@@ -15,6 +15,21 @@ export class StatusComponent implements OnInit {
     },
     {
       name: 'ตรวจสอบข้อมูลรูปภาพ',
+      timestamp: '08/03/2565, 11:40 น.',
+      status: 'COMPLETE'
+    },
+    {
+      name: 'แก้ไขข้อมูล',
+      timestamp: '08/03/2565, 11:40 น.',
+      status: 'WARNING'
+    },
+    {
+      name: 'อัปโหลดรูปภาพใหม่',
+      timestamp: null,
+      status: 'NONE'
+    },
+    {
+      name: 'ตรวจสอบข้อมูลรูปภาพ',
       timestamp: null,
       status: 'NONE'
     },
@@ -27,6 +42,10 @@ export class StatusComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  reupload(): void {
+    console.log('testtest')
   }
 
 }

@@ -1,17 +1,38 @@
-<div class="card">
-  <div *ngFor="let stage of stages">
-    <span class="status-row">
-      <div class="status-icon">
-        <img src="assets/Success%20Small.png" alt="success">
-      </div>
-      <div>
+<div class="container">
+  <div class="card">
+    <div *ngFor="let stage of stages;last as isLast">
+      <span class="status-row">
+        <div class="status-icon-container" [ngSwitch]="stage.status">
+          <div *ngSwitchCase="'COMPLETE'" class="status-icon">
+            <img src="assets/Success%20Small.png" alt="success">
+            <div *ngIf="!isLast" class="vertical-line"></div>
+          </div>
+          <div *ngSwitchCase="'WARNING'" class="status-icon">
+            <img src="assets/Warnning.png" alt="warning">
+            <div *ngIf="!isLast" class="vertical-line-dotted" style="height: 92px"></div>
+          </div>
+          <div *ngSwitchDefault class="status-icon">
+            <img src="assets/Pending.png" alt="idle">
+            <div *ngIf="!isLast" class="vertical-line-dotted"></div>
+          </div>
+        </div>
         <div>
-          {{ stage.name }}
+          <div>
+            {{ stage.name }}
+          </div>
+          <div style="color: darkgray">
+            {{ stage.timestamp || '-' }}
+          </div>
+          <button
+            *ngIf="stage.status === 'WARNING'"
+            class="btn-primary upload-margin"
+            (click)="reupload()"
+            routerLink="/"
+          >
+            อัปโหลดรูปภาพใหม่
+          </button>
         </div>
-        <div style="color: red">
-          {{ stage.timestamp || '-' }}
-        </div>
-      </div>
-    </span>
+      </span>
+    </div>
   </div>
 </div>

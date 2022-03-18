@@ -2,3 +2,35 @@
 body {
   background: #E9EFF6;
 }
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary {
+  color: white;
+  background: #2A4C79;
+  border-radius: 8px;
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  &:hover{
+    background: #044CAC;
+  }
+  &:disabled{
+    background: #CCD7E7;
+  }
+}
+
+.overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 999;
+  overflow: hidden;
+  transition: 0.5s;
+}
